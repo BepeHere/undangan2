@@ -58,7 +58,7 @@ video {
 
 <div class="video-container">
   <video autoplay muted playsinline>
-    <source src="vid-undangan.mp4" type="video/mp4">
+    <source src="undangan.mp4" type="video/mp4">
   </video>
 
   <div id="nama"></div>
@@ -66,7 +66,7 @@ video {
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const nama = params.get("to") || "Bapak / Ibu";
+const nama = params.get("nama") || "Bapak / Ibu";
 
 document.getElementById("nama").textContent = nama;
 </script>
