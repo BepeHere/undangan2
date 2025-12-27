@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Undangan</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: black;
+  overflow: hidden;
+}
+
+/* Container fullscreen */
+.video-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+}
+
+/* Video fullscreen */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* PENTING */
+}
+
+/* Nama penerima */
+#nama {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  font-family: "Times New Roman", serif;
+  font-size: 28px;
+  color: white;
+  opacity: 0;
+  animation: fadeNama 2.5s ease-in-out forwards;
+}
+
+/* Animasi fade in → out */
+@keyframes fadeNama {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="video-container">
+  <video autoplay muted playsinline>
+    <source src="vid-undangan.mp4" type="video/mp4">
+  </video>
+
+  <div id="nama"></div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const nama = params.get("to") || "Bapak / Ibu";
+
+document.getElementById("nama").textContent = nama;
+</script>
+
+</body>
+</html>
